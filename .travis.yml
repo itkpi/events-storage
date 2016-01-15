@@ -6,7 +6,7 @@ install:
 - "echo alpine-mirror: http://mirrors.gigenet.com/alpinelinux/ >> ~/.vagga.yaml"
 script:
 - bash ./deploy/script.sh events_service
-- bash ./deploy/upload.sh postgres
+- bash ./deploy/script.sh postgres
 
 after_success:
 - bash ./deploy/upload.sh events_service
