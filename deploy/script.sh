@@ -8,7 +8,7 @@ INFO_FILENAME=$TARGET/latest_info
 
 echo Build started `date` > $INFO_FILENAME
 echo $container >> $INFO_FILENAME
-git rev-parse HEAD >> $INFO_FILENAME
+echo "revision: `git rev-parse HEAD`" >> $INFO_FILENAME
 git status >> $INFO_FILENAME
 
 vagga _build ${container}
