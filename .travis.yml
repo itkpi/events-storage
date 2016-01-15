@@ -1,0 +1,13 @@
+sudo: required
+dist: trusty
+install:
+- "curl http://files.zerogw.com/vagga/vagga-install.sh | sh"
+- "echo ubuntu-mirror: http://mirrors.us.kernel.org/ubuntu/ > ~/.vagga.yaml"
+- "echo alpine-mirror: http://mirrors.gigenet.com/alpinelinux/ >> ~/.vagga.yaml"
+script:
+- bash ./deploy/script.sh events_service
+- bash ./deploy/upload.sh postgres
+
+after_success:
+- bash ./deploy/upload.sh events_service
+- bash ./deploy/upload.sh postgres
